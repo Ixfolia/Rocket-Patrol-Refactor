@@ -5,7 +5,10 @@
  * 
  * Mods Implemented:
  * Ship speed increases after 30 seconds (1 pt)
- * Display time remaining in seconds (1 pt)
+ * Display time remaining in seconds (3 pt)
+ * Timer +5 seconds on (5 pt)
+ * New Title Screen (3 pt)
+ * Create new special spaceship that's faster, smaller and worth more points (5 pt)
  * 
  */
 
