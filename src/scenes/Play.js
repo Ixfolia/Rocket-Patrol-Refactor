@@ -75,6 +75,42 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.height/2, game.config.height/2 + 64, "Press (R) to Restart", scoreConfig).setOrigin(0.5);           
             }, null, this)
             this.gameOver = true;
+
+        // Increase spaceship speed after 30 seconds (1 pt)
+        this.time.delayedCall(30000, () => {
+        this.ship01.moveSpeed += 2;  // increase by 2 units (or whatever value you prefer)
+        this.ship02.moveSpeed += 2;  
+        this.ship03.moveSpeed += 2;  
+        }, null, this);
+
+        // Initialize Timer
+        this.totalTime = 60;
+    
+        // Create Timer (1 pt)
+        let timerConfig = {
+            fontFamily: "Courier",
+            fontSize: "28px",
+            backgroundColor: "F3B141",
+            color: "#843605",
+            align: "center",
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 100
+        };
+        this.timeLeft = this.add.text(game.config.width/2, borderUISize + borderPadding, this.totalTime, timerConfig).setOrigin(0.5, 0);
+
+        this.timerEvent = this.time.addEvent({
+            delay: 1000,    // every 1000ms = 1 second
+            callback: this.updateTimer,
+            callbackScope: this,
+            loop: true
+        });
+
+    
+
+        
     }
 
     update (){
@@ -138,5 +174,15 @@ class Play extends Phaser.Scene {
             this.p1Score += ship.points;
             this.scoreLeft.text = this.p1Score;
         }
+
+    updateTimer() {
+        if (this.totalTime > 0) {
+            this.totalTime -= 1; // decrease time by 1 second
+            this.timeLeft.text = this.totalTime; // update text to reflect the time left
+        } else {
+            this.timerEvent.remove(); // stop the timer
+        }
+    }
+
 
 }
