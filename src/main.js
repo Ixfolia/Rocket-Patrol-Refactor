@@ -9,6 +9,7 @@
  * Timer +5 seconds on (5 pt)
  * New Title Screen (3 pt)
  * Create new special spaceship that's faster, smaller and worth more points (5 pt)
+ * Rocket can be controlled after it's fired (1 pt)
  * 
  */
 
