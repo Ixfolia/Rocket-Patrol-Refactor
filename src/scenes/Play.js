@@ -86,7 +86,8 @@ class Play extends Phaser.Scene {
         this.time.delayedCall(30000, () => {
         this.ship01.moveSpeed += 2;  // increase by 2 units (or whatever value you prefer)
         this.ship02.moveSpeed += 2;  
-        this.ship03.moveSpeed += 2;  
+        this.ship03.moveSpeed += 2;
+        this.ship04.moveSpeed += 4;
         }, null, this);
 
         // Initialize Timer
@@ -119,20 +120,20 @@ class Play extends Phaser.Scene {
         this.shipHit = false;
 
 
-    // Initialize FIRE text
-    this.fireText = this.add.text(borderUISize * borderPadding + 100, borderUISize + 20, 'FIRE', {
-        fontFamily: "Courier",
-        fontSize: "40px",
-        backgroundColor: "F3B141",
-        color: "#843605",
-        align: "center",
-        padding: {
-            top: 5,
-            bottom: 5,
-        },
-        fixedWidth: 100
-        });
-    this.fireText.visible = false;  // Hide it initially
+        // Initialize FIRE text
+        this.fireText = this.add.text(borderUISize * borderPadding + 100, borderUISize + 20, 'FIRE', {
+            fontFamily: "Courier",
+            fontSize: "40px",
+            backgroundColor: "F3B141",
+            color: "#843605",
+            align: "center",
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 100
+            });
+        this.fireText.visible = false;  // Hide it initially
 
 
         
