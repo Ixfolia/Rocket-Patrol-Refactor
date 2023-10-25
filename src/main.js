@@ -10,6 +10,9 @@
  * New Title Screen (3 pt)
  * Create new special spaceship that's faster, smaller and worth more points (5 pt)
  * Rocket can be controlled after it's fired (1 pt)
+ * Added new sprite background (1 pt)
+ * Added FIRE text when rocket fires and disappears (1 pt)
+ * 20 pts total
  * 
  */
 

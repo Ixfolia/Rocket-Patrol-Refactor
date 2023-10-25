@@ -7,7 +7,7 @@ class Play extends Phaser.Scene {
         // load images/tile sprites
         this.load.image("rocket", "./assets/rocket.png");
         this.load.image("spaceship", "./assets/spaceship.png");
-        this.load.image("starfield", "./assets/starfield.png");
+        this.load.image("starfield", "./assets/planet_background_2-5.png");
         this.load.image("special_spaceship", "./assets/Special_Spaceship.png");
 
         // load spritesheet
@@ -117,6 +117,24 @@ class Play extends Phaser.Scene {
     
         // Initialize flag for if the ship is hit
         this.shipHit = false;
+
+
+    // Initialize FIRE text
+    this.fireText = this.add.text(borderUISize * borderPadding + 100, borderUISize + 20, 'FIRE', {
+        fontFamily: "Courier",
+        fontSize: "40px",
+        backgroundColor: "F3B141",
+        color: "#843605",
+        align: "center",
+        padding: {
+            top: 5,
+            bottom: 5,
+        },
+        fixedWidth: 100
+        });
+    this.fireText.visible = false;  // Hide it initially
+
+
         
     }
 
@@ -203,5 +221,10 @@ class Play extends Phaser.Scene {
         }
     }
 
+    fireButton() {
+        if (Rocket.isFiring){
+
+        }
+    }
 
 }
