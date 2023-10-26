@@ -75,11 +75,6 @@ class Play extends Phaser.Scene {
 
         // 60 second play clock
         scoreConfig.fixedWidth = 0;
-        this.clock = this.time.delayedCall(60000, () => {
-            this.add.text(game.config.width/2, game.config.height/2, "GAME OVER", scoreConfig).setOrigin(0.5);
-            this.add.text(game.config.height/2, game.config.height/2 + 64, "Press (R) to Restart", scoreConfig).setOrigin(0.5);   
-            this.gameOver = true;        
-            }, null, this)
             
 
         // Increase spaceship speed after 30 seconds (1 pt)
@@ -146,12 +141,7 @@ class Play extends Phaser.Scene {
         }
         // moving starfield to the left starfield
         this.starfield.tilePositionX -= 4;
-        // // update rocket
-        // this.p1Rocket.update();
-        // // update spaceships
-        // this.ship01.update();
-        // this.ship02.update();
-        // this.ship03.update();
+
 
         // check collisions
         if(this.checkCollision(this.p1Rocket, this.ship03)){
@@ -217,15 +207,15 @@ class Play extends Phaser.Scene {
         if (this.totalTime > 0) {
             this.totalTime -= 1; // decrease time by 1 second
             this.timeLeft.text = this.totalTime; // update text to reflect the time left
-        } else {
+        } else if (this.totalTime <= 0) {
+            this.totalTime = 0; // Ensure it doesn't go negative
+            this.timeLeft.text = this.totalTime; // Set the text to 0
+            this.add.text(game.config.width/2, game.config.height/2, "GAME OVER", this.scoreConfig).setOrigin(0.5);
+            this.add.text(game.config.width/2, game.config.height/2 + 64, "Press (R) to Restart", this.scoreConfig).setOrigin(0.5);            
+            this.gameOver = true;
             this.timerEvent.remove(); // stop the timer
         }
     }
 
-    fireButton() {
-        if (Rocket.isFiring){
-
-        }
-    }
 
 }
